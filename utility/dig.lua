@@ -28,8 +28,9 @@ function util.dig(dig_task)
     local x, y, z, dir = dig_task.l, dig_task.w, dig_task.h, dig_task.dir
 
     for i = 1, x do
+        print("Starting layer:", i, "Width:", y, "Height:", z, "Direction:", dir)
         for j = 1, y do
-            helpers.dig_forwards(z)
+            helpers.dig_forwards(z - 1)
 
             if j < y then
                 if j % 2 == 1 then
@@ -50,10 +51,12 @@ function util.dig(dig_task)
             turtle.turnRight()
         end
 
-        if dir == "down" then
-            helpers.dig_down(1)
-        else
-            helpers.dig_up(1)
+        if i < x then
+            if dir == "down" then
+                helpers.dig_down(1)
+            else
+                helpers.dig_up(1)
+            end
         end
         local temp = z
         z = y
