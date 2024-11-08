@@ -32,14 +32,16 @@ function util.dig(dig_task)
     for j = 1, y do
         helpers.dig_forwards(z)
 
-        if j % 2 == 1 then
-            turtle.turnRight()
-            helpers.dig_forwards(1)
-            turtle.turnRight()
-        else
-            turtle.turnLeft()
-            helpers.dig_forwards(1)
-            turtle.turnLeft()
+        if j < y then
+            if j % 2 == 1 then
+                turtle.turnRight()
+                helpers.dig_forwards(1)
+                turtle.turnRight()
+            else
+                turtle.turnLeft()
+                helpers.dig_forwards(1)
+                turtle.turnLeft()
+            end
         end
     end
 
