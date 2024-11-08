@@ -1,5 +1,7 @@
 -- dig_task = { l = 0, w = 0, h = 0, dir = "forward" }
+helpers = require("helpers")
 
+util = {}
 function util.make_dig_task(l, w, h, dir)
     local found = false
     for _, v in ipairs({ "forwards", "up", "down" }) do
