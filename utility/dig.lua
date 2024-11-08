@@ -27,36 +27,36 @@ end
 function util.dig(dig_task)
     local x, y, z, dir = dig_task.l, dig_task.w, dig_task.h, dig_task.dir
 
-    for i = 1, x do
-        local temp = z
-        z = y
-        y = temp
-        for j = 1, y do
-            helpers.dig_forwards(z)
+    -- for i = 1, x do
+    local temp = z
+    z = y
+    y = temp
+    for j = 1, y do
+        helpers.dig_forwards(z)
 
-            if j % 2 == 1 then
-                turtle.turnRight()
-                helpers.dig_forwards(1)
-                turtle.turnRight()
-            else
-                turtle.turnLeft()
-                helpers.dig_forwards(1)
-                turtle.turnLeft()
-            end
-        end
-
-        if y % 2 == 1 then
-            helpers.turnAround()
-        else
+        if j % 2 == 1 then
             turtle.turnRight()
-        end
-
-        if dir == "down" then
-            helpers.dig_down(1)
+            helpers.dig_forwards(1)
+            turtle.turnRight()
         else
-            helpers.dig_up(1)
+            turtle.turnLeft()
+            helpers.dig_forwards(1)
+            turtle.turnLeft()
         end
     end
+
+    if y % 2 == 1 then
+        helpers.turnAround()
+    else
+        turtle.turnRight()
+    end
+
+    if dir == "down" then
+        helpers.dig_down(1)
+    else
+        helpers.dig_up(1)
+    end
+    -- end
 end
 
 return util
