@@ -28,9 +28,7 @@ function util.dig(dig_task)
     local x, y, z, dir = dig_task.l, dig_task.w, dig_task.h, dig_task.dir
 
     -- for i = 1, x do
-    local temp = z
-    z = y
-    y = temp
+
     for j = 1, y do
         helpers.dig_forwards(z)
 
@@ -56,6 +54,9 @@ function util.dig(dig_task)
     else
         helpers.dig_up(1)
     end
+    local temp = z
+    z = y
+    y = temp
     -- end
 end
 
