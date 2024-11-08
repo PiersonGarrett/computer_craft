@@ -29,7 +29,7 @@ function util.dig(dig_task)
 
     for i = 1, x do
         for j = 1, y do
-            helpers.dig_forwards(z - 1)
+            helpers.dig_forwards(z)
 
             if i % 2 == 1 then
                 turtle.turnRight()
@@ -42,7 +42,12 @@ function util.dig(dig_task)
             end
         end
 
-        helpers.turnAround()
+        if y % 2 == 1 then
+            helpers.turnAround()
+        else
+            turtle.turnRight()
+        end
+
         if dir == "down" then
             helpers.dig_down(1)
         else
