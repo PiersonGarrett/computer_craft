@@ -148,6 +148,10 @@ function helpers.dig_shaft(l, w, h, dir)
     helpers.moveUp(h)
 end
 
+--- Location and Movement
+
+function helpers.get_current_location()
+    turle.gps()
 return helpers
 
 -- local l tonumber(arg[1]) or 1

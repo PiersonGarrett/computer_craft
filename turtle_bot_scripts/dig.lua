@@ -15,18 +15,15 @@ function util.make_dig_task(l, w, h, dir)
     return valid, dig_task
 end
 
-function helpers.dig_forwards(x)
-    for i = 1, x do
-        if turtle.detect() then
-            turtle.dig()
-        end
-        turtle.forward()
-    end
-end
-
 function util.dig(dig_task)
     local x, y, z, dir = dig_task.l, dig_task.w, dig_task.h, dig_task.dir
-
+    if dir == "down" then
+        helpers.dig_down(1)
+    elseif dir == "up" then
+        helpers.dig_up(1)
+    else
+        -- do nothing
+    end
     for i = 1, x do
         print("Starting layer:", i, "Width:", y, "Height:", z, "Direction:", dir)
         for j = 1, y do
